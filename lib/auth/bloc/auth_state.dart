@@ -1,0 +1,52 @@
+import 'package:equatable/equatable.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+abstract class AuthState extends Equatable {
+  const AuthState();
+
+  @override
+  List<Object?> get props => [];
+}
+
+class AuthInitial extends AuthState {}
+
+class AuthLoading extends AuthState {}
+
+class AuthAuthenticated extends AuthState {
+  final User user;
+  final Map<String, dynamic> userData;
+  final bool isAdmin;
+
+  const AuthAuthenticated({
+    required this.user,
+    required this.userData,
+    this.isAdmin = false,
+  });
+
+  @override
+  List<Object?> get props => [user, userData, isAdmin];
+}
+
+class AuthUnauthenticated extends AuthState {}
+
+class AuthError extends AuthState {
+  final String message;
+
+  const AuthError({required this.message});
+
+  @override
+  List<Object?> get props => [message];
+}
+
+class BulkStudentCreationSuccess extends AuthState {
+  final int createdCount;
+  final List<String> errors;
+
+  const BulkStudentCreationSuccess({
+    required this.createdCount,
+    this.errors = const [],
+  });
+
+  @override
+  List<Object?> get props => [createdCount, errors];
+}
