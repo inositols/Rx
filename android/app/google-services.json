@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "69643858080",
+    "project_id": "rx-quiz-c7d47",
+    "storage_bucket": "rx-quiz-c7d47.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:69643858080:android:8eef8341584c2098bd19c5",
+        "android_client_info": {
+          "package_name": "com.example.monami"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxN4NsfKkrGNbok0jYZRSBaejq7GzwvIo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
