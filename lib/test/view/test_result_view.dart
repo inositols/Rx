@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import '../quiz/quiz/quiz_bloc.dart';
-import '../quiz/quiz/quiz_state.dart';
-import '../models/cbt_models.dart';
-import '../utils/responsive_utils.dart';
-import 'cbt_dashboard_view.dart';
+import 'package:monami/dashboard/view/cbt_dashboard_view.dart';
+import 'package:monami/quiz/bloc/bloc.dart';
 
 class TestResultView extends StatelessWidget {
   const TestResultView({super.key});

@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/auth_bloc.dart';
 import '../bloc/auth_event.dart';
 import '../bloc/auth_state.dart';
-import '../../utils/responsive_utils.dart';
-import '../../views/cbt_dashboard_view.dart';
+import 'package:monami/core/utils/responsive_utils.dart';
+import 'package:monami/dashboard/view/cbt_dashboard_view.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});

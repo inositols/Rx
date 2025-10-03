@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../question/question/question_bloc.dart';
-import '../question/question/question_event.dart';
-import '../question/question/question_state.dart';
-import '../models/cbt_models.dart';
+import 'package:monami/question/bloc/bloc.dart';
+import 'package:monami/core/models/cbt_models.dart';
 
 class QuestionManagementView extends StatefulWidget {
   const QuestionManagementView({super.key});

@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import '../../models/cbt_models.dart';
+import 'package:monami/core/models/cbt_models.dart';
 
 abstract class QuestionState extends Equatable {
   const QuestionState();

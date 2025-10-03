@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../utils/migration_helper.dart';
+import 'package:monami/core/utils/migration_helper.dart';
 
 class AdminToolsView extends StatefulWidget {
   const AdminToolsView({super.key});
@@ -57,9 +57,9 @@ class _AdminToolsViewState extends State<AdminToolsView> {
                 ),
               ),
             ),
-            
+
             const SizedBox(height: 24),
-            
+
             // Migration section
             Card(
               child: Padding(
@@ -70,15 +70,14 @@ class _AdminToolsViewState extends State<AdminToolsView> {
                     Text(
                       'Registration Number Format Migration',
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                            fontWeight: FontWeight.bold,
+                          ),
                     ),
                     const SizedBox(height: 12),
                     const Text(
                       'Migrates existing registration numbers to the new YYYY/NNNNNN format and ensures proper normalization in Firebase collections.',
                     ),
                     const SizedBox(height: 16),
-                    
                     if (_status.isNotEmpty) ...[
                       Container(
                         padding: const EdgeInsets.all(12),
@@ -93,19 +92,20 @@ class _AdminToolsViewState extends State<AdminToolsView> {
                       ),
                       const SizedBox(height: 16),
                     ],
-                    
                     Row(
                       children: [
                         ElevatedButton.icon(
                           onPressed: _isRunning ? null : _runMigration,
-                          icon: _isRunning 
+                          icon: _isRunning
                               ? const SizedBox(
                                   width: 16,
                                   height: 16,
-                                  child: CircularProgressIndicator(strokeWidth: 2),
+                                  child:
+                                      CircularProgressIndicator(strokeWidth: 2),
                                 )
                               : const Icon(Icons.play_arrow),
-                          label: Text(_isRunning ? 'Running...' : 'Run Migration'),
+                          label:
+                              Text(_isRunning ? 'Running...' : 'Run Migration'),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.orange,
                             foregroundColor: Colors.white,
@@ -127,9 +127,9 @@ class _AdminToolsViewState extends State<AdminToolsView> {
                 ),
               ),
             ),
-            
+
             const SizedBox(height: 24),
-            
+
             // Information section
             Card(
               child: Padding(
@@ -140,15 +140,17 @@ class _AdminToolsViewState extends State<AdminToolsView> {
                     Text(
                       'Registration Number Format',
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                            fontWeight: FontWeight.bold,
+                          ),
                     ),
                     const SizedBox(height: 12),
                     const Text('• New format: YYYY/NNNNNN (e.g., 2019/240045)'),
                     const Text('• Year: 4 digits (2000-2030)'),
                     const Text('• Number: 6 digits'),
-                    const Text('• Stored in Firebase as: YYYY_NNNNNN (normalized)'),
-                    const Text('• Displayed to users as: YYYY/NNNNNN (original format)'),
+                    const Text(
+                        '• Stored in Firebase as: YYYY_NNNNNN (normalized)'),
+                    const Text(
+                        '• Displayed to users as: YYYY/NNNNNN (original format)'),
                     const SizedBox(height: 8),
                     const Text(
                       'Migration process:',
@@ -176,7 +178,7 @@ class _AdminToolsViewState extends State<AdminToolsView> {
     try {
       // Run migration and capture output
       final result = await _migrationHelper.runAllMigrations();
-      
+
       setState(() {
         _status = result;
         _status += '\n✅ Migration completed successfully!';
@@ -217,7 +219,7 @@ class _AdminToolsViewState extends State<AdminToolsView> {
     try {
       // Run validation
       final result = await _migrationHelper.validateMigration();
-      
+
       setState(() {
         _status = result;
         _status += '\n✅ Validation completed!';

@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
-import '../lib/utils/admin_setup.dart';
-import '../lib/firebase_options.dart';
+import 'package:monami/core/utils/admin_setup.dart';
+import 'package:monami/firebase_options.dart';
 
 void main() async {
   // Initialize Firebase
@@ -20,14 +20,14 @@ void main() async {
       'role': 'class_rep',
     },
     {
-      'email': 'admin@pharmacy.unn.edu.ng', 
+      'email': 'admin@pharmacy.unn.edu.ng',
       'password': 'Admin2024!',
       'name': 'System Administrator',
       'role': 'admin',
     },
     {
       'email': 'lecturer@pharmacy.unn.edu.ng',
-      'password': 'Lecturer2024!', 
+      'password': 'Lecturer2024!',
       'name': 'Course Lecturer',
       'role': 'lecturer',
     }
@@ -60,4 +60,3 @@ void main() async {
     print('-' * 30);
   }
 }
-

@@ -1,12 +1,9 @@
-// lib/screens/splash_screen.dart
 import 'package:flutter/material.dart';
-
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../auth/bloc/auth_bloc.dart';
-import '../auth/bloc/auth_state.dart';
+import 'package:monami/auth/bloc/bloc.dart';
+import 'package:monami/dashboard/view/cbt_dashboard_view.dart';
 import 'auth_selector_view.dart';
-import 'cbt_dashboard_view.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
