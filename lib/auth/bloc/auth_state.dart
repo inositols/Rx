@@ -15,16 +15,14 @@ class AuthLoading extends AuthState {}
 class AuthAuthenticated extends AuthState {
   final User user;
   final Map<String, dynamic> userData;
-  final bool isAdmin;
 
   const AuthAuthenticated({
     required this.user,
     required this.userData,
-    this.isAdmin = false,
   });
 
   @override
-  List<Object?> get props => [user, userData, isAdmin];
+  List<Object?> get props => [user, userData];
 }
 
 class AuthUnauthenticated extends AuthState {}
@@ -38,15 +36,3 @@ class AuthError extends AuthState {
   List<Object?> get props => [message];
 }
 
-class BulkStudentCreationSuccess extends AuthState {
-  final int createdCount;
-  final List<String> errors;
-
-  const BulkStudentCreationSuccess({
-    required this.createdCount,
-    this.errors = const [],
-  });
-
-  @override
-  List<Object?> get props => [createdCount, errors];
-}
