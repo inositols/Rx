@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import '../quiz/quiz/quiz_bloc.dart';
-import '../quiz/quiz/quiz_event.dart';
-import '../quiz/quiz/quiz_state.dart';
-import '../models/cbt_models.dart';
+import 'package:monami/core/models/cbt_models.dart';
+import 'package:monami/quiz/bloc/bloc.dart';
+import 'package:monami/test/view/view.dart';
 
 class TestHistoryView extends StatelessWidget {
   const TestHistoryView({super.key});
@@ -367,4 +366,3 @@ class TestHistoryView extends StatelessWidget {
     }
   }
 }
-

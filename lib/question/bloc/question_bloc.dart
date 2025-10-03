@@ -1,7 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:csv/csv.dart';
-import '../../models/cbt_models.dart';
+import 'package:monami/core/models/cbt_models.dart';
+
 import 'question_event.dart';
 import 'question_state.dart';
 

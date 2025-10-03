@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../auth/bloc/auth_bloc.dart';
-import '../auth/bloc/auth_event.dart';
-import '../auth/bloc/auth_state.dart';
-import '../quiz/quiz/quiz_bloc.dart';
-import '../quiz/quiz/quiz_event.dart';
-import '../utils/responsive_utils.dart';
-import 'test_list_view.dart';
-import 'test_history_view.dart';
-import 'quiz_upload_view.dart';
-import 'question_management_view.dart';
+import 'package:monami/auth/bloc/bloc.dart';
+import 'package:monami/core/utils/responsive_utils.dart';
+import 'package:monami/question/view/question_management_view.dart';
+import 'package:monami/quiz/bloc/bloc.dart';
+import 'package:monami/quiz/view/quiz_upload_view.dart';
+import 'package:monami/shared/view/auth_selector_view.dart';
+
+import '../../test/view/view.dart';
 import 'admin_tools_view.dart';
-import 'auth_selector_view.dart';
 
 class CBTDashboardView extends StatelessWidget {
   const CBTDashboardView({super.key});

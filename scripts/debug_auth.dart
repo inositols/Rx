@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
-import '../lib/utils/debug_auth.dart';
-import '../lib/firebase_options.dart';
+import 'package:monami/core/utils/debug_auth.dart';
+import 'package:monami/firebase_options.dart';
 
 void main() async {
   // Initialize Firebase
@@ -27,10 +27,9 @@ void main() async {
   // Create a test student if needed
   print('\n❓ Want to create a test student? Uncomment the line below:');
   print('// await DebugAuth.createTestStudent();');
-  
+
   // Uncomment this line if you need a test student:
   await DebugAuth.createTestStudent();
 
   print('\n✅ Debug complete!');
 }
-

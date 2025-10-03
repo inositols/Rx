@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:file_picker/file_picker.dart';
 import 'dart:convert';
-import '../question/question/question_bloc.dart';
-import '../question/question/question_event.dart';
-import '../question/question/question_state.dart';
-import '../utils/responsive_utils.dart';
+import 'package:monami/question/bloc/bloc.dart';
+import 'package:monami/core/utils/responsive_utils.dart';
 
 class WebCsvUploadScreen extends StatefulWidget {
   const WebCsvUploadScreen({super.key});

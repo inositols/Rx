@@ -2,10 +2,10 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../../models/cbt_models.dart';
-import '../../data/question_json.dart' as question_data;
-import 'quiz_event.dart';
-import 'quiz_state.dart';
+
+import 'package:monami/quiz/bloc/bloc.dart';
+import 'package:monami/core/models/cbt_models.dart';
+import 'package:monami/core/data/question_json.dart' as question_data;
 
 class QuizBloc extends Bloc<QuizEvent, QuizState> {
   final FirebaseFirestore _firestore;
@@ -387,7 +387,6 @@ class QuizBloc extends Bloc<QuizEvent, QuizState> {
   List<TestQuestion> _loadDefaultQuestions() {
     // Convert existing questions from question_json.dart
     final List<Map<String, dynamic>> rawQuestions = question_data.questions;
-
     return rawQuestions.asMap().entries.map((entry) {
       final index = entry.key;
       final question = entry.value;

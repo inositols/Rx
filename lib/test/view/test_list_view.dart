@@ -2,11 +2,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../auth/bloc/auth_bloc.dart';
-import '../auth/bloc/auth_state.dart';
-import '../models/cbt_models.dart';
-import '../utils/responsive_utils.dart';
-import 'test_taking_view.dart';
+import 'package:monami/auth/bloc/bloc.dart';
+import 'package:monami/core/models/cbt_models.dart';
+import 'package:monami/core/utils/responsive_utils.dart';
 
 class TestListView extends StatefulWidget {
   const TestListView({super.key});

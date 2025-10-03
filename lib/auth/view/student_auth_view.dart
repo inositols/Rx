@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../auth/bloc/auth_bloc.dart';
-import '../auth/bloc/auth_event.dart';
-import '../auth/bloc/auth_state.dart';
-import '../utils/responsive_utils.dart';
-import 'cbt_dashboard_view.dart';
+import 'package:monami/auth/bloc/bloc.dart';
+import 'package:monami/core/utils/responsive_utils.dart';
+import 'package:monami/dashboard/view/cbt_dashboard_view.dart';
 
 class StudentAuthScreen extends StatefulWidget {
   const StudentAuthScreen({super.key});
@@ -325,4 +323,3 @@ class _StudentAuthScreenState extends State<StudentAuthScreen> {
     );
   }
 }
-
