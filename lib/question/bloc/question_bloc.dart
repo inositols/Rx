@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:csv/csv.dart';
+import 'package:csv/csv.dart' as csv;
 import 'package:monami/core/models/cbt_models.dart';
 
 import 'question_event.dart';
@@ -348,7 +348,7 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
     List<List<dynamic>> rows = [];
 
     try {
-      rows = const CsvToListConverter().convert(content);
+      rows = csv.decode(content);
     } catch (e) {
       errors.add('Invalid CSV format: ${e.toString()}');
       return {'rows': <List<dynamic>>[], 'errors': errors};
