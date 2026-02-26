@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:monami/auth/view/admin_auth_view.dart';
 import 'package:monami/auth/view/student_auth_view.dart';
 import 'package:monami/core/utils/responsive_utils.dart';
 
@@ -9,6 +8,7 @@ class AuthSelectorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.red,
       body: Stack(
         fit: StackFit.expand,
         children: [
@@ -99,22 +99,6 @@ class AuthSelectorScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 50),
 
-                      // Selection prompt
-                      Text(
-                        'Select your login type:',
-                        style: TextStyle(
-                          fontSize: ResponsiveUtils.getResponsiveFontSize(
-                            context,
-                            mobile: 16,
-                            tablet: 18,
-                            desktop: 20,
-                          ),
-                          fontWeight: FontWeight.w500,
-                          color: Colors.grey.shade700,
-                        ),
-                      ),
-                      const SizedBox(height: 30),
-
                       // Student login card
                       _buildLoginCard(
                         context,
@@ -126,23 +110,6 @@ class AuthSelectorScreen extends StatelessWidget {
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (context) => const StudentAuthScreen(),
-                            ),
-                          );
-                        },
-                      ),
-                      const SizedBox(height: 20),
-
-                      // Admin login card
-                      _buildLoginCard(
-                        context,
-                        title: 'Admin Portal',
-                        subtitle: 'Class representatives and administrators',
-                        icon: Icons.admin_panel_settings,
-                        color: Colors.teal,
-                        onTap: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => const AdminAuthScreen(),
                             ),
                           );
                         },
@@ -164,7 +131,7 @@ class AuthSelectorScreen extends StatelessWidget {
                             const SizedBox(width: 12),
                             Expanded(
                               child: Text(
-                                'Students: Use your registration number to access tests.\nAdmins: Manage student accounts and upload class lists.',
+                                'Use your registration number to access your assigned tests.',
                                 style: TextStyle(
                                   color: Colors.grey.shade600,
                                   fontSize: 12,
