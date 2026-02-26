@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:csv/csv.dart' as csv;
+import 'package:csv/csv.dart';
 import 'package:monami/core/models/cbt_models.dart';
 
 import 'question_event.dart';
@@ -348,7 +348,7 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
     List<List<dynamic>> rows = [];
 
     try {
-      rows = csv.decode(content);
+      rows = _parseCsvContent(content);
     } catch (e) {
       errors.add('Invalid CSV format: ${e.toString()}');
       return {'rows': <List<dynamic>>[], 'errors': errors};
@@ -400,5 +400,73 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
     }
 
     return {'rows': rows, 'errors': errors};
+  }
+
+  // Simple CSV parser used as a fallback so the code compiles without relying
+  // on an external CsvToListConverter symbol; supports quoted fields and
+  // escaped quotes ("").
+  List<List<dynamic>> _parseCsvContent(String content) {
+    final result = <List<dynamic>>[];
+    if (content.isEmpty) return result;
+
+    final currentField = StringBuffer();
+    final currentRow = <dynamic>[];
+    bool inQuotes = false;
+    int i = 0;
+    final len = content.length;
+
+    while (i < len) {
+      final char = content[i];
+
+      if (char == '"') {
+        if (inQuotes && i + 1 < len && content[i + 1] == '"') {
+          // Escaped quote
+          currentField.write('"');
+          i += 2;
+          continue;
+        } else {
+          inQuotes = !inQuotes;
+          i++;
+          continue;
+        }
+      }
+
+      if (!inQuotes && char == ',') {
+        currentRow.add(currentField.toString());
+        currentField.clear();
+        i++;
+        continue;
+      }
+
+      if (!inQuotes && (char == '\n' || char == '\r')) {
+        // End of row
+        currentRow.add(currentField.toString());
+        currentField.clear();
+        result.add(List<dynamic>.from(currentRow));
+        currentRow.clear();
+
+        if (char == '\r' && i + 1 < len && content[i + 1] == '\n') {
+          i += 2;
+        } else {
+          i += 1;
+        }
+        continue;
+      }
+
+      currentField.write(char);
+      i++;
+    }
+
+    // Add any remaining data as the last row
+    if (inQuotes) {
+      throw FormatException('Unterminated quoted field in CSV');
+    }
+
+    if (currentField.isNotEmpty || currentRow.isNotEmpty) {
+      currentRow.add(currentField.toString());
+      result.add(List<dynamic>.from(currentRow));
+    }
+
+    return result;
   }
 }
